@@ -1,4 +1,5 @@
 import React from "react";
+import { useStateContext } from "@/components/HBOProvider";
 
 const loopComp = (comp, digit) => {
   let thumbnails = [];
@@ -10,15 +11,16 @@ const loopComp = (comp, digit) => {
 };
 
 function SearchModal(props) {
+  const globalState = useStateContext();
   return (
-    <div className="search-modal">
+    <div className={`search-modal ${globalState.searchOpen ? 'search-modal__active' : '' }`}>
       <div className="search-modal__input-group">
         <input
           className="search-modal__input"
           placeholder="search for a title"
           value=""
         />
-        <div className="search-modal__close-btn">
+        <div className="search-modal__close-btn" onClick = { () => globalState.setSearchOpen(false)}>
           <i className="fas fa-times" />
         </div>
       </div>

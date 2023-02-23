@@ -1,6 +1,6 @@
 .top-header {
-    background: rgba(0, 0, 0, 0);
-//   background: black;
+  background: rgba(0, 0, 0, 0);
+  //   background: black;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -13,6 +13,9 @@
   z-index: 10;
   transition: background 0.3s ease-in-out;
 
+  &--menu-open {
+    background: black;
+  }
   &:hover {
     background: rgba(0, 0, 0, 1);
   }
@@ -37,6 +40,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 
   &__user-img {
@@ -44,9 +48,12 @@
     height: 30px;
     border-radius: 50%;
     border: 3px solid rgb(132, 0, 255);
-    object-fit:cover;
-    object-position:center;
-    margin-right:1rem;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 1rem;
+  }
 
+  i {
+    cursor: pointer;
   }
 }

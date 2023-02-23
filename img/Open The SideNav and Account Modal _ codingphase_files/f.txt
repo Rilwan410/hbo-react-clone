@@ -1,0 +1,1 @@
+_gfp_s_({"_cookies_":[{"_value_":"UID=000009ddf2793692:T=1672698891:RT=1676740482:S=ALNI_MbkiNj1hKA8cdtsI18GoXV3BDuzaQ","_expires_":1706394891,"_path_":"/","_domain_":"teachable.com","_version_":2}]});

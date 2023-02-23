@@ -11,9 +11,24 @@ export function HBOProvider({ children }) {
   const createUserAction = (e) => {
     setUser(e.target.value);
   };
-
+  const [sideNavOpen, setSideNavOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   return (
-    <StateContext.Provider value={{ user, createUserAction,globalUserImage }}>
+    <StateContext.Provider
+      value={{
+        user,
+        setUser,
+        createUserAction,
+        globalUserImage,
+        sideNavOpen,
+        setSideNavOpen,
+        accountOpen,
+        setAccountOpen,
+        searchOpen,
+        setSearchOpen,
+      }}
+    >
       {children}
     </StateContext.Provider>
   );

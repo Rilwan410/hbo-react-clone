@@ -9,6 +9,7 @@
   transition: opacity 0.4s ease-in-out;
   visibility: hidden;
   opacity: 0;
+  overflow:scroll;
 
   z-index: 13;
   &__active {
