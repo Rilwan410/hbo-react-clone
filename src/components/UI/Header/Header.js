@@ -2,6 +2,7 @@ import React from "react";
 import Account from "../Account/Account";
 import SearchModal from "../SearchModal/SearchModal";
 import { useStateContext } from "@/components/HBOProvider";
+import Link from "next/link";
 
 function Header(props) {
   const globalState = useStateContext();
@@ -25,12 +26,16 @@ function Header(props) {
             />
           </div>
 
-          <div className="top-header__search-btn" onClick = { () => globalState.setSearchOpen(true)}>
+          <div
+            className="top-header__search-btn"
+            onClick={() => globalState.setSearchOpen(true)}
+          >
             <i className="fas fa-search" />
           </div>
         </div>
 
-        <div className="top-header__logo"></div>
+
+        <a href='/'><div className="top-header__logo"></div></a>
 
         <div
           className="top-header__account"

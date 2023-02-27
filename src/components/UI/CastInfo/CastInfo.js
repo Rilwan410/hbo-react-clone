@@ -1,72 +1,71 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function CastInfo(props) {
+  const [loadingData, setLoadingData] = useState(true);
+  const [credits, setCredits] = useState([]);
+
+  // /discover/movie?with_genres=28&primary_release_year=2022
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/${props.mediaType === 'movie' ? 'movie' : 'tv'}/${props.mediaId}/credits?api_key=1418807822dc08d848a20722bb586c6f&language=en-US`
+      )
+      .then((response) => {
+        setCredits(response.data);
+        setLoadingData(false);
+
+        console.log("Success Response for cast and crew");
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log("Error Response for cast and crew");
+        console.log(error);
+      });
+  }, []);
+
+  const showCast = () => {
+    if (!loadingData) {
+      return credits.cast.map((item) => {
+        return (
+          <ul className="cast-info__crew">
+            <li>{item.character}</li>
+            <li>{item.name}</li>
+          </ul>
+        );
+      });
+    } else {
+      return <div>Loading Cast...</div>;
+    }
+  };
+
+  const showCrew = () => {
+    if (!loadingData) {
+      return credits.crew.map((item) => {
+        return (
+          <ul className="cast-info__crew">
+            <li>{item.job}</li>
+            <li>{item.name}</li>
+          </ul>
+        );
+      });
+    } else {
+      return <div>Loading Crew...</div>;
+    }
+  };
+
   return (
     <div className="cast-info">
-      <div className="cast-info__group-title">Cast & Crew</div>
+      <div className="cast-info__group-title">Cast</div>
 
-      <div className="class-info__list">
-        <ul className="cast-info__crew">
-          <li>Director</li>
-          <li>George Lucas</li>
-        </ul>
-        <ul className="cast-info__crew">
-          <li>Director</li>
-          <li>Gianna Luther</li>
-        </ul>
-        <ul className="cast-info__crew">
-          <li>Special FX</li>
-          <li>Daniel McGriddle</li>
-        </ul>
-        <ul className="cast-info__crew">
-          <li>Audio</li>
-          <li>Fabian Noles</li>
-        </ul>
-      </div>
+      <div className="class-info__list">{showCast()}</div>
 
-      <div className="cast-info__group-title">Director</div>
+      <div className="cast-info__group-title">Crew</div>
 
-      <div className="class-info__list">
-        <ul className="cast-info__crew">
-          <li>Director</li>
-          <li>George Lucas</li>
-        </ul>
-        <ul className="cast-info__crew">
-          <li>Director</li>
-          <li>Gianna Luther</li>
-        </ul>
-        <ul className="cast-info__crew">
-          <li>Special FX</li>
-          <li>Daniel McGriddle</li>
-        </ul>
-        <ul className="cast-info__crew">
-          <li>Audio</li>
-          <li>Fabian Noles</li>
-        </ul>
-      </div>
+      <div className="class-info__list">{showCrew()}</div>
     </div>
   );
 }
 {
-  /* <li>Director</li>
-          <li>George Lucas</li>
-
-          <li>Director</li>
-          <li>George Lucas</li>
-
-          <li>Special FX</li>
-          <li>George Lucas</li>
-
-          <li>Audio</li>
-          <li>George Lucas</li>
-
-          <li>Camera Men</li>
-          <li>George Lucas</li>
-
-          <li>Actor</li>
-          <li>George Lucas</li>
-
-          <li>Writer</li>
-          <li>George Lucas</li> */
 }
 export default CastInfo;

@@ -26,6 +26,7 @@
     width: 129px;
     background-image: url(https://cdn2.steamgriddb.com/file/sgdb-cdn/logo/60a399eedc5ad40dbf3cd69cf3c178a6.png);
     transform: scale(0.9);
+    cursor:pointer;
   }
 
   &__left-side {
@@ -55,5 +56,5 @@
 
   i {
     cursor: pointer;
-  }
+  } 
 }

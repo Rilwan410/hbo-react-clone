@@ -12,3 +12,8 @@
 @use "../components/UI/SearchModal/SearchModal";
 @use "../components/UI/Login/Login";
 @use "../components/UI/MediaRow/MediaRow";
+@use '../components/GenreNav/GenreNav';
+
+.hide-comp {
+  display: none;
+}

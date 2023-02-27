@@ -16,7 +16,13 @@ export default function Home() {
 
   return AuthCheck(
     <MainLayout>
-      <FeaturedMedia />
+      <FeaturedMedia
+        mediaUrl="https://www.youtube.com/embed/NYH2sLid0Zc?autoplay=1&mute=1&loop=1&start=16"
+        title="Mortal Kombat"
+        location="In theaters and HBO MAX. Streaming throughout May 23rd"
+        linkUrl="/movie/460465"
+        type="front"
+      />
 
       <LazyLoad
         offset={-400}
@@ -31,10 +37,11 @@ export default function Home() {
 
       <LazyLoad
         offset={-400}
-        placeholder={<Placeholder title="Movies" type="small-h" />}
+        placeholder={<Placeholder title="Series" type="small-h" />}
       >
         <MediaRow
           title="Series"
+          mediaType = 'series'
           type="small-h"
           endpoint="discover/tv?&primary_release_year=2022"
         />

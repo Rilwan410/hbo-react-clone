@@ -5,7 +5,6 @@ function Account(props) {
   const globalState = useStateContext();
   return (
     <div
-      // className={`account ${globalState.accountOpen ? "account__active" : ""}`}
       className={`account ${globalState.accountOpen ? "account__active" : ""}`}
     >
       <div className="account__details">

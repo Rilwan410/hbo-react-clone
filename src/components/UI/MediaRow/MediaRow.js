@@ -36,27 +36,16 @@ function MediaRow(props) {
     return loadingData
       ? loopComp(<Skeleton />, 10)
       : movies.map((movie) => {
-          return <Thumbnail movieData={movie} type={type} />;
+        
+          return (
+            <Thumbnail
+              movieData={movie}
+              type={type}
+              mediaType={props.mediaType}
+            />
+          );
         });
   };
-
-  // const thumbSize = (type) => {
-  //   if (props.type === "large-v") {
-  //     return "400";
-  //   }
-
-  //   if (props.type === "small-v") {
-  //     return "185";
-  //   }
-
-  //   if (props.type === "large-h") {
-  //     return "700";
-  //   }
-
-  //   if (props.type === "small-h") {
-  //     return "450";
-  //   }
-  // };
 
   return (
     <div className={`media-row ${props.type}`}>
@@ -71,7 +60,7 @@ function MediaRow(props) {
   );
 }
 
-const Thumbnail = ({ movieData, type}) => {
+const Thumbnail = ({mediaType, type, movieData}) => {
   const thumbSize = (typee) => {
     if (typee === "large-v") {
       return "400";
@@ -91,14 +80,18 @@ const Thumbnail = ({ movieData, type}) => {
   };
 
   return (
-    <div className="media-row__thumbnail">
-      <img
-        src={`https://image.tmdb.org/t/p/w${thumbSize(type)}/${movieData.poster_path}`}
-      />
-      <div className="media-row__top-layer">
-        <i className="fas fa-play" />
+    <a href={`/${mediaType === "movie" ? "movie" : "tv"}/${movieData.id} `}>
+      <div className="media-row__thumbnail">
+        <img
+          src={`https://image.tmdb.org/t/p/w${thumbSize(type)}/${
+            movieData.poster_path
+          }`}
+        />
+        <div className="media-row__top-layer">
+          <i className="fas fa-play" />
+        </div>
       </div>
-    </div>
+    </a>
   );
 };
 
@@ -108,5 +101,7 @@ const Skeleton = () => {
       <div className="media-row__thumbnail-skeleton-img"></div>
     </div>
   );
-};
+}; 
+
+MediaRow.defaultProps = {mediaType: 'movie'}
 export default MediaRow;
