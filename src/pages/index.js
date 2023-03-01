@@ -22,6 +22,8 @@ export default function Home() {
         location="In theaters and HBO MAX. Streaming throughout May 23rd"
         linkUrl="/movie/460465"
         type="front"
+        mediaType={"movie"}
+        mediaId={460465}
       />
 
       <LazyLoad
@@ -41,7 +43,7 @@ export default function Home() {
       >
         <MediaRow
           title="Series"
-          mediaType = 'series'
+          mediaType="series"
           type="small-h"
           endpoint="discover/tv?&primary_release_year=2022"
         />

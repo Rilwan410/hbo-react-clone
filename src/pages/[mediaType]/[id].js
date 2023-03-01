@@ -28,6 +28,8 @@ function SingleMediaPage(props) {
         location="In theaters and HBO MAX. Streaming throughout May 23rd"
         linkUrl="/movies/id"
         type="single"
+        mediaType={props.query.mediaType}
+        mediaid={props.query.id}
       />
       <LazyLoad
         offset={-400}
@@ -42,11 +44,13 @@ function SingleMediaPage(props) {
         <MediaRow
           title="Similar To This"
           type="small-v"
-          mediaType = {props.query.mediaType}
-          endpoint={`${props.query.mediaType === 'movie' ? 'movie' : 'tv'}/${props.query.id}/similar?`}
+          mediaType={props.query.mediaType}
+          endpoint={`${props.query.mediaType === "movie" ? "movie" : "tv"}/${
+            props.query.id
+          }/similar?`}
         />
       </LazyLoad>
-      <CastInfo mediaId={props.query.id} mediaType = {props.query.mediaType}/>
+      <CastInfo mediaId={props.query.id} mediaType={props.query.mediaType} />
     </MainLayout>
   );
 }
@@ -55,7 +59,6 @@ export async function getServerSideProps(context) {
   let mediaData;
 
   try {
-
     mediaData = await axios.get(
       // console.log('success fetching data')
       `https://api.themoviedb.org/3/${context.query.mediaType}/${context.query.id}?api_key=1418807822dc08d848a20722bb586c6f&language=en-US`

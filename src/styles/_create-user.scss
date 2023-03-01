@@ -63,28 +63,26 @@
     color: white;
     font-size: 1.5rem;
   }
-&__colors{
-display:flex;
-// gap:10px;
-justify-content:space-between;
+  &__colors {
+    display: flex;
+    // gap:10px;
+    justify-content: space-between;
+  }
 
-}
+  &__color {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out;
+    &--active {
+      border: 3px solid white;
+    }
 
-&__color{
-border-radius:50%;
-height:30px;
-width:30px;
-cursor:pointer;
-transition:transform .4s ease-in-out;
-&--active{
-    border:3px solid white;
-}
-
-&:hover{
-    transform:scale(1.5);
-}
-}
-
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
 
   &__user-img {
     width: 125px;
@@ -124,6 +122,17 @@ transition:transform .4s ease-in-out;
 
     &__kid {
       opacity: 1;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .create-user {
+    &__form {
+      flex-direction: column;
+    }
+    &__user-img {
+      margin-right: 0;
     }
   }
 }

@@ -49,7 +49,7 @@ function CreateUser() {
         <div className="create-user__form">
           <img
             className="create-user__user-img"
-            src={globalState.globalUserImage}
+            src='https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg'
           />
 
           <div className="create-user__input-group">

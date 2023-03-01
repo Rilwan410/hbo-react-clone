@@ -50,12 +50,14 @@ export default function MediaTypePage(props) {
             : props.featuredData.name
         }
         linkUrl={`/${props.query.mediaType}/${props.featuredData.id}`}
+        mediaType={props.query.mediaType}
+        mediaid={props.featuredData.id}
         type="single"
       />
       <GenreNav
         mediaType={props.query.mediaType}
         genresData={props.genresData}
-        test ={'test'}
+        test={"test"}
       />
       {showRandomMedia()}
       {/* <LazyLoad

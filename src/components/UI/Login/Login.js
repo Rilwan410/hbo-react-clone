@@ -37,7 +37,8 @@ function Login() {
           >
             <img
               className="login-user__user-img"
-              src="https://randomuser.me/api/portraits/women/30.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg"
+              // src="https://randomuser.me/api/portraits/women/30.jpg"
             />
             <div className="login-user__user-name">{users.user}</div>
           </div>
